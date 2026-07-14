@@ -1,7 +1,8 @@
 package com.example.restaurante.model.Productos
-
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.restaurante.model.Estados.Categoria
-
+@Entity(tableName = "productos")
 data class Producto(
 
     val id: Int,
