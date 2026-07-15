@@ -101,10 +101,6 @@ class PedidoRepository(
         }
 
     }
-
-    /**
-     * Actualiza un pedido existente.
-     */
     suspend fun actualizarPedido(
         pedido: PedidoEntity
     ) {

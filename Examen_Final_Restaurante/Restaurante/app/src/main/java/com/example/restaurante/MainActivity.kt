@@ -43,8 +43,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-
-        // Insertar datos de prueba de forma segura
+        
         insertarDatosPrueba()
 
         setContent {
