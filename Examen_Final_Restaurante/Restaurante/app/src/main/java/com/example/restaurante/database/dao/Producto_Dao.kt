@@ -21,4 +21,7 @@ interface ProductoDao {
     @Query("SELECT * FROM productos WHERE id = :id")
     suspend fun buscarPorId(id: Int): Producto?
 
+    @Query("SELECT * FROM productos WHERE disponible = 1")
+    suspend fun obtenerDisponibles(): List<Producto>
+
 }

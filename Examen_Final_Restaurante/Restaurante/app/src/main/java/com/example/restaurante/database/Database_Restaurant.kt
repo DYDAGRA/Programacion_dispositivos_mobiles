@@ -9,10 +9,12 @@ import com.example.restaurante.database.converters.MetodoPagoConverter
 import com.example.restaurante.database.converters.RolConverter
 import com.example.restaurante.database.dao.ProductoDao
 import com.example.restaurante.model.Productos.Producto
-
+import com.example.restaurante.model.Usuarios.Usuario
+import com.example.restaurante.database.dao.UsuarioDao
 @Database(
     entities = [
-        Producto::class
+        Producto::class,
+        Usuario::class
     ],
     version = 1,
     exportSchema = false
@@ -29,5 +31,6 @@ import com.example.restaurante.model.Productos.Producto
 abstract class RestauranteDatabase : RoomDatabase() {
 
     abstract fun productoDao(): ProductoDao
+    abstract fun usuarioDao(): UsuarioDao
 
 }

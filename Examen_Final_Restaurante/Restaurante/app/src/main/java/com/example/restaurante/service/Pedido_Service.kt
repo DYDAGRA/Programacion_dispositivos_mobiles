@@ -1,5 +1,5 @@
 package com.example.restaurante.service
-
+import com.example.restaurante.model.Usuarios.Usuario
 import com.example.restaurante.model.Estados.EstadoMesa
 import com.example.restaurante.model.Pedido.Mesa
 import com.example.restaurante.model.Pedido.Pedido
@@ -11,7 +11,7 @@ class PedidoService {
 
     fun crearPedido(
         mesa: Mesa,
-        mozo: Mozo
+        usuario: Usuario
     ): Pedido {
 
         if (mesa.pedidoActual != null) {
@@ -21,7 +21,7 @@ class PedidoService {
         val pedido = Pedido(
             contadorPedidos++,
             mesa,
-            mozo
+            usuario
         )
 
         mesa.pedidoActual = pedido

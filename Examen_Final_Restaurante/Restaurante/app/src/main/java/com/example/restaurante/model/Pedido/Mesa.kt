@@ -10,4 +10,12 @@ class Mesa(
 
     var estado = EstadoMesa.LIBRE
 
+    var pedidoActual: Pedido? = null
+
+    fun estaLibre(): Boolean {
+
+        return pedidoActual == null
+
+    }
+
 }
