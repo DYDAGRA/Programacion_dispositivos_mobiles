@@ -24,4 +24,7 @@ interface ProductoDao {
     @Query("SELECT * FROM productos WHERE disponible = 1")
     suspend fun obtenerDisponibles(): List<Producto>
 
+    @Query("""UPDATE productos SET stock = stock - :cantidad WHERE id = :productoId """)
+    suspend fun descontarStock(productoId: Int, cantidad: Int)
+
 }

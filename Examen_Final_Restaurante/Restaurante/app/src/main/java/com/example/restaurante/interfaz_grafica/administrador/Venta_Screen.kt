@@ -1,4 +1,4 @@
-package com.example.restaurante.interfaz_grafica.mozo
+package com.example.restaurante.interfaz_grafica.administrador
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,11 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.restaurante.model.entities.PedidoEntity
 import com.example.restaurante.repository.PedidoRepository
-import kotlinx.coroutines.launch
-import com.example.restaurante.interfaz_grafica.componentes.PedidoCard
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PedidosScreen(
+fun VentasScreen(
 
     pedidoRepository: PedidoRepository,
 
@@ -26,8 +25,6 @@ fun PedidosScreen(
         mutableStateListOf<PedidoEntity>()
 
     }
-
-    val scope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {
 
@@ -49,7 +46,7 @@ fun PedidosScreen(
 
                 title = {
 
-                    Text("Pedidos")
+                    Text("Historial de Ventas")
 
                 },
 
@@ -78,19 +75,41 @@ fun PedidosScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp),
-
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .padding(16.dp)
 
         ) {
 
             items(pedidos) { pedido ->
 
-                PedidoCard(
+                Card(
 
-                    pedido = pedido
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 6.dp)
 
-                )
+                ) {
+
+                    Column(
+
+                        modifier = Modifier.padding(16.dp)
+
+                    ) {
+
+                        Text(
+                            "Pedido #${pedido.id}"
+                        )
+
+                        Text(
+                            "Mesa ${pedido.numeroMesa}"
+                        )
+
+                        Text(
+                            "Estado: ${pedido.estado}"
+                        )
+
+                    }
+
+                }
 
             }
 

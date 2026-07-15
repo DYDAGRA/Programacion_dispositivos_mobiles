@@ -44,4 +44,14 @@ class ProductoRepository(
 
     }
 
+    suspend fun descontarStock(
+        productoId: Int,
+        cantidad: Int
+    ) {
+        productoDao.descontarStock(
+            productoId,
+            cantidad
+        )
+    }
+
 }
