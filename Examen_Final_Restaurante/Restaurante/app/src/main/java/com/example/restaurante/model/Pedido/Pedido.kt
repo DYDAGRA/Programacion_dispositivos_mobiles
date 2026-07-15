@@ -1,8 +1,7 @@
 package com.example.restaurante.model.Pedido
-
+import com.example.restaurante.model.Usuarios.Usuario
 import com.example.restaurante.model.Estados.EstadoPedido
 import com.example.restaurante.model.Productos.Producto
-import com.example.restaurante.model.Usuarios.Mozo
 import java.time.LocalDateTime
 import com.example.restaurante.model.Estados.MetodoPago
 class Pedido(
@@ -11,19 +10,24 @@ class Pedido(
 
     val mesa: Mesa,
 
-    val mozo: Mozo
+    val usuario: Usuario,
+
+    var observacion: String = "",
+
+    var enviadoACocina: Boolean = false,
+
+    var fechaFin: LocalDateTime? = null,
+
+    var metodopago: MetodoPago? = null
 
 ) {
 
-    val fecha = LocalDateTime.now()
-
-    var fechaCierre: LocalDateTime? = null
+    val fechaCreacion = LocalDateTime.now()
 
     var estado = EstadoPedido.ACTIVO
 
     private val items = mutableListOf<ItemPedido>()
 
-    var metodoPago: MetodoPago? = null
     fun agregarProducto(
         producto: Producto,
         cantidad: Int

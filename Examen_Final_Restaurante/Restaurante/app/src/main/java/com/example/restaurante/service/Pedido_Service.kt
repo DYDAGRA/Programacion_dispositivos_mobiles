@@ -4,7 +4,6 @@ import com.example.restaurante.model.Estados.EstadoMesa
 import com.example.restaurante.model.Pedido.Mesa
 import com.example.restaurante.model.Pedido.Pedido
 import com.example.restaurante.model.Productos.Producto
-import com.example.restaurante.model.Usuarios.Mozo
 
 class PedidoService {
 

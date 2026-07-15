@@ -5,7 +5,8 @@ import com.example.restaurante.model.Estados.Categoria
 @Entity(tableName = "productos")
 data class Producto(
 
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
 
     var nombre: String,
 

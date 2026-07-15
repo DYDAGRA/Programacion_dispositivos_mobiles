@@ -1,17 +1,23 @@
 package com.example.restaurante.model.Usuarios
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.restaurante.model.Estados.Rol
 
-open class Usuario(
+@Entity(tableName = "usuarios")
+data class Usuario(
 
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
 
     var nombre: String,
 
     var usuario: String,
 
-    var contrasena: String,
+    var contraseña: String,
 
-    val rol: Rol
+    var rol: Rol,
+
+    var activo: Boolean = true
 
 )
